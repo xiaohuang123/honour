@@ -1,0 +1,186 @@
+$(function(){
+     /*浏览器版本支持*/
+     function myBrowser(){
+    var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
+    var isOpera = userAgent.indexOf("Opera") > -1; //判断是否Opera浏览器
+    var isIE = userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1 && !isOpera; //判断是否IE浏览器
+    var isFF = userAgent.indexOf("Firefox") > -1; //判断是否Firefox浏览器
+    var isSafari = userAgent.indexOf("Safari") > -1; //判断是否Safari浏览器
+    if (isIE) {
+        var IE5 = IE55 = IE6 = IE7 = IE8 = false;
+        var reIE = new RegExp("MSIE (\\d+\\.\\d+);");
+        reIE.test(userAgent);
+        var fIEVersion = parseFloat(RegExp["$1"]);
+        IE55 = fIEVersion == 5.5;
+        IE6 = fIEVersion == 6.0;
+        IE7 = fIEVersion == 7.0;
+        IE8 = fIEVersion == 8.0;
+        IE9 = fIEVersion == 9.0;
+        if (IE55) {
+            return "IE55";
+        }
+        if (IE6) {
+            return "IE6";
+        }
+        if (IE7) {
+            return "IE7";
+        }
+        if (IE8) {
+            return "IE8";
+        }
+        if (IE9) {
+        	 return "IE9"
+        }
+    }//isIE end
+    if (isFF) {
+        return "FF";
+    }
+    if (isOpera) {
+        return "Opera";
+    }
+}//myBrowser() end
+//以下是调用上面的函数
+if (myBrowser() == "IE55" || myBrowser() == "IE6" || myBrowser() == "IE7" || myBrowser() == "IE8" || myBrowser() == "IE9") {
+	        
+           $.cxDialog({
+			     	 title:'提示',
+		  	         info:'<div style="text-align:left;padding: 30px;padding-top: 30px;font-size: 14px;line-height: 34px;padding-bottom: 18px;">为了便于您有更好的体验，<br>建议您更换浏览器或升级到IE最新版<br>给您带来的不便，在此表示歉意！</div>',
+			  	     lockScroll: true,
+				     closeBtn:false,
+				     background: '#000',
+				    okText:'我知道了',
+				    ok:function() {
+				      location.href='http://rj.baidu.com/soft/detail/14744.html?ald';//返回
+				    }
+			   })   
+ 
+
+}else{
+	//获取页面中部可滑动区域的最大高度
+	function highly(){
+		var highly = $(window).height();
+		$("body").css("min-height",highly);
+	};
+	highly();
+	$(window).resize(function(){
+		highly();
+	});	
+	
+	
+	//TAB切换
+	$(".zhicwl-caid-div ul li .zhicwl-caid-neibz").hover(function(){
+		$(this).parent().addClass("on");
+	},function(){
+		$(this).parent().removeClass("on");
+	});
+	
+	$(".zhicwl-caid-div ul li article").hover(function(){
+		$(".zhicwl-caid-tab > div").hide().eq($(this).parent().index()).show();
+	});
+	
+
+	//滚动条位置判断
+	$(window).scroll(function(){ 
+
+		var highly = $(window).height();
+		
+
+		//A1
+		if($(document).scrollTop() <= 0){
+			$(".zhicwl-datu-div").addClass("animated zhicwl-slideInDown");
+		}else{
+			$(".zhicwl-datu-div").removeClass("animated zhicwl-slideInDown");
+		};		
+		
+
+		//A2
+		if($(".zhicwl-caid").hasClass("zhicwl-dh")){
+			var laksr_2 = ($(".zhicwl-caid.zhicwl-dh").offset().top);
+			var dhja_2 = $(".zhicwl-caid.zhicwl-dh").height();
+		};	
+		
+		if($(document).scrollTop() >= laksr_2-(highly-dhja_2)){
+			$(".zhicwl-caid.zhicwl-dh .zhicwl-palmsrt").addClass("animated zhicwl-bounceIn2");
+		}else{
+			$(".zhicwl-caid.zhicwl-dh .zhicwl-palmsrt").removeClass("animated zhicwl-bounceIn2");
+		};	
+		
+		
+		//A3
+		if($(".zhicwl-apsker-on1").hasClass("zhicwl-dh")){
+			var laksr_3 = ($(".zhicwl-apsker-on1.zhicwl-dh").offset().top);
+			var dhja_3 = $(".zhicwl-apsker-on1.zhicwl-dh").height();
+		};		
+
+		if($(document).scrollTop() >= laksr_3-(highly-dhja_3)){
+			$(".zhicwl-apsker-on1.zhicwl-dh .zhicwl-apsker-div-left").addClass("animated zhicwl-slideInLeft");
+			$(".zhicwl-apsker-on1.zhicwl-dh .zhicwl-apsker-div-right").addClass("animated zhicwl-slideInDown");
+		}else{
+			$(".zhicwl-apsker-on1.zhicwl-dh .zhicwl-apsker-div-left").removeClass("animated zhicwl-slideInLeft");
+			$(".zhicwl-apsker-on1.zhicwl-dh .zhicwl-apsker-div-right").removeClass("animated zhicwl-slideInDown");	
+		};
+		
+		
+		//A4
+		if($(".zhicwl-apsker-on2").hasClass("zhicwl-dh")){
+			var laksr_4 = ($(".zhicwl-apsker-on2.zhicwl-dh").offset().top);
+			var dhja_4 = $(".zhicwl-apsker-on2.zhicwl-dh").height();
+		};		
+
+		if($(document).scrollTop() >= laksr_4-(highly-dhja_4)){
+			$(".zhicwl-apsker-on2.zhicwl-dh .zhicwl-apsker-div-right").addClass("animated zhicwl-slideInDown");
+			$(".zhicwl-apsker-on2.zhicwl-dh .zhicwl-apsker-div-left").addClass("animated zhicwl-slideInRight");
+		}else{
+			$(".zhicwl-apsker-on2.zhicwl-dh .zhicwl-apsker-div-right").removeClass("animated zhicwl-slideInDown");	
+			$(".zhicwl-apsker-on2.zhicwl-dh .zhicwl-apsker-div-left").removeClass("animated zhicwl-slideInRight");
+		};
+		
+		
+		//A5
+		if($(".zhicwl-apsker-on3").hasClass("zhicwl-dh")){
+			var laksr_5 = ($(".zhicwl-apsker-on3.zhicwl-dh").offset().top);
+			var dhja_5 = $(".zhicwl-apsker-on3.zhicwl-dh").height();
+		};		
+
+		if($(document).scrollTop() >= laksr_5-(highly-dhja_5)){
+			$(".zhicwl-apsker-on3.zhicwl-dh .zhicwl-apsker-div-right").addClass("animated zhicwl-slideInDown");
+			$(".zhicwl-apsker-on3.zhicwl-dh .zhicwl-apsker-div-left").addClass("animated zhicwl-slideInLeft");
+		}else{
+			$(".zhicwl-apsker-on3.zhicwl-dh .zhicwl-apsker-div-right").removeClass("animated zhicwl-slideInDown");	
+			$(".zhicwl-apsker-on3.zhicwl-dh .zhicwl-apsker-div-left").removeClass("animated zhicwl-slideInLeft");
+		};		
+		
+
+		//A6
+		if($(".zhicwl-apsker-on4").hasClass("zhicwl-dh")){
+			var laksr_6 = ($(".zhicwl-apsker-on4.zhicwl-dh").offset().top);
+			var dhja_6 = $(".zhicwl-apsker-on4.zhicwl-dh").height();
+		};		
+
+		if($(document).scrollTop() >= laksr_6-(highly-dhja_6)){
+			$(".zhicwl-apsker-on4.zhicwl-dh .zhicwl-apsker-div-right").addClass("animated zhicwl-slideInDown");
+			$(".zhicwl-apsker-on4.zhicwl-dh .zhicwl-apsker-div-left").addClass("animated zhicwl-slideInRight");
+		}else{
+			$(".zhicwl-apsker-on4.zhicwl-dh .zhicwl-apsker-div-right").removeClass("animated zhicwl-slideInDown");	
+			$(".zhicwl-apsker-on4.zhicwl-dh .zhicwl-apsker-div-left").removeClass("animated zhicwl-slideInRight");
+		};
+		
+
+		//A7
+		if($(".zhicwl-dlspert").hasClass("zhicwl-dh")){
+			var laksr_7 = ($(".zhicwl-dlspert.zhicwl-dh").offset().top);
+			var dhja_7 = $(".zhicwl-dlspert.zhicwl-dh").height();
+		};		
+
+		if($(document).scrollTop() >= laksr_7-(highly-dhja_7)){
+			$(".zhicwl-dlspert.zhicwl-dh .zhicwl-almsbvr").addClass("animated zhicwl-slideInDown2");
+		}else{
+			$(".zhicwl-dlspert.zhicwl-dh .zhicwl-almsbvr").removeClass("animated zhicwl-slideInDown2");
+		};
+
+	}); 
+}
+
+	
+	
+});

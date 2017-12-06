@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.test.email.mapping.StatisticsMapper" >
+
+      <select id="getErrorCount" parameterType="cn.test.email.model.Users" resultType="cn.test.email.model.QuestionType">
+      
+           SELECT 
+			  question_type.`type`,COUNT(question_type.`id`) id
+			FROM
+			  t_error_question,
+			  t_exam_question,
+			  question_type 
+			WHERE qid = t_exam_question.id 
+			  AND question_type.`id` = t_exam_question.`type` 
+			  AND uid = #{uid} 
+			GROUP BY question_type.`id` ;
+	
+	  </select>
+	  
+      <select id="getQuestionCount" resultType="cn.test.email.model.QuestionType">
+      
+           SELECT 
+			  COUNT(question_type.`id`) id,
+			  question_type.`type`
+			FROM
+			  t_exam_question,
+			  question_type 
+			WHERE question_type.`id` = t_exam_question.`type` 
+			GROUP BY question_type.`id` ;
+
+	
+	  </select>
+ 
+</mapper>

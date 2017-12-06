@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.test.email.mapping.TestParperMapper" >
+
+<resultMap type="cn.test.email.model.TestPaper" id="SeedPaperAndTestPaper">
+	<id column="id" property="id"/>
+	<result column="pname" property="pname"/>
+	<result column="seednum" property="seednum"/>
+	<result column="qnum" property="qnum"/>
+	<result column="minute" property="minute"/>
+	<result column="time" property="time"/>
+	<result column="rank" property="rank"/>
+	
+	<!-- <collection property="seedPapers" ofType="cn.test.email.model.SeedPaper">
+		<id column="id" property="id"/>
+		<result column="spname" property="spname"/>
+		<result column="sqnum" property="sqnum"/>
+		<result column="sminute" property="sminute"/>
+		<result column="stime" property="stime"/>
+		<result column="pid" property="pid"/>
+	</collection> -->
+</resultMap>
+
+
+
+	<insert id="insert" parameterType="cn.test.email.model.TestPaper">
+		insert into t_test_paper 
+		values(null,#{pname},#{seednum},#{qnum},#{minute},#{time},#{rank})
+	</insert>
+	
+	<select id="selectAll" resultMap="SeedPaperAndTestPaper" >
+		SELECT * FROM t_test_paper 
+		<where>
+			<if test="pid!=null and pid!=''">
+				and id=#{pid}
+			</if>
+		</where>
+	</select>
+	
+	<!-- 查询子卷 -->
+	<!-- <select id="selectSeedPaper" resultType="cn.test.email.model.SeedPaper" parameterType="cn.test.email.model.SeedPaper">
+		select * from t_seed_paper
+		<where>
+			<if test="pid!=null and pid!=''">
+				and pid=#{pid}
+			</if>
+		</where>
+	</select> -->
+	<!-- 添加子卷 -->
+	<!-- <insert id="insertSeedPaper" parameterType="cn.test.email.model.SeedPaper">
+		insert into t_seed_paper 
+		values(null,#{spname},#{sqnum},#{sminute},#{stime},#{pid})
+	</insert> -->
+	
+	
+	<!-- 查询用户所能看到的试卷 -->
+	<select id="selectTestPaperById"  resultType="cn.test.email.model.TestPaper">
+		select id,pname,seednum,qnum,minute,time,rank
+		from t_test_paper
+		<!-- where rank <![CDATA[<=]]> #{rank} -->
+	</select>
+</mapper>

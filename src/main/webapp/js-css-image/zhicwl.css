@@ -1,0 +1,242 @@
+@charset "utf-8";
+
+/*---------------------------------------- 媒体查询 ----------------------------------------*/
+@media (max-width:780px) {
+	html{ font-size: 31.6875px;}			
+}
+@media (min-width:375px) and (max-width:414px) {
+	html{ font-size: 16.8187px;}		
+}
+@media (min-width:360px) and (max-width:375px) {
+	html{ font-size: 15.2344px;}		
+}
+@media (min-width:320px) and (max-width:360px) {
+	html{ font-size: 14.625px;}		
+}
+@media (max-width:320px) {
+	html{ font-size: 13px;}	
+}
+/*---------------------------------------- /媒体查询 ----------------------------------------*/
+
+
+/*初始化*/
+.zhicwl-iconfont {
+  font-size: inherit; 
+	color: inherit;
+	line-height: 1;
+  font-style: normal; 
+	vertical-align: middle; 
+	display: inline-block;
+}
+
+
+*{ 
+	/*-webkit-user-select: none; /*禁止用户进行复制、选择*/
+	box-sizing: border-box; /*设置元素的内边距和边框包括在总宽高内进行绘制计算*/
+	outline: 0; /*移除当元素被点击后或获取到焦点时候出现的焦点虚线-轮廓线*/
+	-webkit-tap-highlight-color: transparent; /*移除点击后出现的灰色背景*/
+} 
+input{ -webkit-user-select: text !important;}
+
+body { 
+	line-height: 1; /*行高默认1倍*/
+}
+
+/*让字体风格、大小、颜色继承其父元素并清空h1-h6的默认边距*/
+h1, h2, h3, h4, h5, h6 {
+	font-family: inherit; 
+	font-weight: 400;
+	color: inherit; 
+	margin-top: 0; 
+	margin-bottom: 0; 
+}
+.h1, h1 { font-size: 36px;}
+.h2, h2 { font-size: 30px;}
+.h3, h3 { font-size: 24px;}
+.h4, h4 { font-size: 18px;}
+.h5, h5 { font-size: 14px;}
+.h6, h6 { font-size: 12px;}
+
+
+/*移除默认下划线并且背景颜色设置为透明*/
+a, a:visited {
+	text-decoration: none;
+	background-color: transparent;
+}
+
+
+/*移除输入框自动填充后出现的默认黄色背景*/
+input:-webkit-autofill { 
+	-webkit-box-shadow: 0 0 0px 1000px white inset !important; 
+} 
+
+/*禁止手动调整编辑框调整的尺寸*/				                        
+textarea { resize: none;}
+
+/*禁止改变元素中字母的大小写*/
+button, select { text-transform: none;}
+
+/*移除type="number"的上下箭头（type="number"，规定只能输入阿拉伯数字）*/
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+	-webkit-appearance: none !important;
+	margin: 0;
+}
+input{
+	-webkit-appearance: none !important;
+	-ms-appearance: none !important;
+}
+input::-webkit-search-cancel-button{ display: none;}
+input::-ms-clear{display: none;}
+input::-webkit-clear{display: none;}
+input::clear{display: none;}
+
+input::-ms-reveal{display: none;}
+input::-webkit-reveal{display: none;}
+input::reveal{display: none;}
+
+/*隐藏滚动条*/
+/*
+::-webkit-scrollbar{ 
+	width: 0; 
+	height: 0;
+}
+*/
+
+/*美化滚动条*/
+.zhicwl-mhgdt::-webkit-scrollbar {  
+	width: 14px;  
+	height: 14px;  
+}  
+.zhicwl-mhgdt::-webkit-scrollbar-track,  
+.selectbox .select-bar select::-webkit-scrollbar-thumb {  
+	border-radius: 999px;  
+	border: 5px solid transparent;  
+}  
+.zhicwl-mhgdt::-webkit-scrollbar-track {  
+	box-shadow: 1px 1px 5px rgba(0,0,0,.2) inset;  
+}  
+.zhicwl-mhgdt::-webkit-scrollbar-thumb {  
+	min-height: 20px;  
+	background-clip: content-box;  
+	box-shadow: 0 0 0 5px rgba(0,0,0,.2) inset;  
+}  
+.zhicwl-mhgdt::-webkit-scrollbar-corner {  
+	background: transparent;  
+}
+
+.zhicwl-mhgdt::-webkit-scrollbar {  
+	width: 14px;  
+	height: 14px;  
+}  
+.zhicwl-mhgdt::-webkit-scrollbar-track,  
+.zhicwl-mhgdt::-webkit-scrollbar-thumb {  
+	border-radius: 999px;  
+	border: 5px solid transparent;  
+}  
+.zhicwl-mhgdt::-webkit-scrollbar-track {  
+	box-shadow: 1px 1px 5px rgba(0,0,0,.2) inset;  
+}  
+.zhicwl-mhgdt::-webkit-scrollbar-thumb {  
+	min-height: 20px;  
+	background-clip: content-box;  
+	box-shadow: 0 0 0 5px rgba(0,0,0,.2) inset;  
+}  
+.zhicwl-mhgdt::-webkit-scrollbar-corner {  
+	background: transparent;  
+}  
+/*/美化滚动条*/
+
+a, img { border: none;} /*移除默认的边框*/
+
+input, fieldset { padding: 0;}
+a, a:visited, a:hover, a:focus, a:active, samp, input, button, textarea, select, tt, code, kbd { color: inherit;} 
+input{ line-height: normal;}
+p, figure, dl, dd, input, button, input, optgroup, select, textarea { margin: 0;}
+ul {
+	margin-top: 0; 
+	margin-bottom: 0; 
+	padding-left: 0; 
+	padding-right: 0;
+	list-style-type: none; 
+}
+samp, input, button, textarea, select, tt, code, kbd, optgroup {
+	font: inherit;
+	font-size: inherit;
+	color: inherit; 
+}
+/*/初始化*/
+
+
+
+/*通用样式*/
+
+
+/*字体大小*/
+.font-size-0{ font-size: 0px;}
+.font-size-12{ font-size: 12px;}
+.font-size-13{ font-size: 13px;}
+.font-size-14{ font-size: 14px;}
+.font-size-15{ font-size: 15px;}
+.font-size-16{ font-size: 16px;}
+.font-size-17{ font-size: 17px;}
+.font-size-18{ font-size: 18px;}
+.font-size-19{ font-size: 19px;}
+.font-size-20{ font-size: 20px;}
+.font-size-21{ font-size: 21px;}
+.font-size-22{ font-size: 22px;}
+.font-size-23{ font-size: 23px;}
+.font-size-24{ font-size: 24px;}
+.font-size-25{ font-size: 25px;}
+.font-size-26{ font-size: 26px;}
+.font-size-27{ font-size: 27px;}
+.font-size-28{ font-size: 28px;}
+.font-size-29{ font-size: 29px;}
+.font-size-30{ font-size: 30px;}
+.font-size-31{ font-size: 31px;}
+.font-size-32{ font-size: 32px;}
+.font-size-33{ font-size: 33px;}
+.font-size-34{ font-size: 34px;}
+.font-size-35{ font-size: 35px;}
+.font-size-36{ font-size: 36px;}
+.font-size-37{ font-size: 37px;}
+.font-size-38{ font-size: 38px;}
+.font-size-39{ font-size: 39px;}
+.font-size-40{ font-size: 40px;}
+.font-size-41{ font-size: 41px;}
+.font-size-42{ font-size: 42px;}
+.font-size-43{ font-size: 43px;}
+.font-size-44{ font-size: 44px;}
+.font-size-45{ font-size: 45px;}
+.font-size-46{ font-size: 46px;}
+.font-size-47{ font-size: 47px;}
+.font-size-48{ font-size: 48px;}
+.font-size-49{ font-size: 49px;}
+.font-size-50{ font-size: 50px;}
+
+/*设置浮动*/
+.float-left { float: left;} /*设置元素向左浮动*/
+.float-right { float: right;} /*设置元素向右浮动*/
+
+
+/*清除浮动*/
+.clear-left { clear: left;} /*左侧不允许浮动元素*/
+.clear-right { clear: right;} /*右侧不允许浮动元素*/
+.clear-both { clear: both;} /*左右两侧均不允许浮动元素*/
+
+
+/*其他*/
+.overflow-hidden { overflow: hidden;} /*自动截取超出后的内容或区域*/
+.visibility-hidden { visibility: hidden;} /*设置元素为不可见，但还是会占据原有位置*/
+.visibility-visible { visibility: visible;} /*设置元素为可见*/
+.display-block { display: block;} /*设置元素为块级并显示*/
+.display-none { display: none;} /*设置元素为隐藏*/
+.display-inline { display: inline;} /*设置元素为内联*/
+.display-inline-block { display: inline-block;} /*设置元素为内联块级，元素会尽可能缩减占用空间*/
+.text-align-center { text-align: center;} /*文本居中*/
+.text-align-left { text-align: left;} /*文本左对齐*/
+.text-align-right { text-align: right;} /*文本右对齐*/
+.font-weight-bold { font-weight: bold;} /*字体加粗*/
+.font-weight-normal { font-weight: normal;} /*字体不加粗*/
+.cursor-pointer { cursor: pointer} /*当鼠标经过元素的时候出现手指形状*/
+.text-decoration-underline{ text-decoration: underline;}
+/*/通用样式*/

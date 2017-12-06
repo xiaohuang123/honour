@@ -1,0 +1,147 @@
+$(function(){
+//add_new_paper.hmtl
+    //li关闭 A_N_P_li
+    var anp_li_clos = $('.A_N_P_li ul li');
+    anp_li_clos.on('click','em',function(){
+        $(this).parent().remove();
+    });
+    //内容切换 A_N_P_Tk
+    var anp_tk_input1 = $('.A_N_P_Tkone'),
+        anp_tk_input2 = $('.A_N_P_Tktwo'),
+        anp_tk_sibi1 = $('.sibe_A'),
+        anp_tk_sibi2 = $('.sibe_B');
+    anp_tk_input1.on('click',function(){
+        anp_tk_sibi1.css('display','block');
+        anp_tk_sibi2.css('display','none');
+    });
+    anp_tk_input2.on('click',function(){
+        anp_tk_sibi2.css('display','block');
+        anp_tk_sibi1.css('display','none');
+    });
+    //点击更换框 A_N_P_Sul 
+    var anp_ul_li = $('.A_N_P_Sul ul');
+    anp_ul_li.on('click','li',function(){
+        if(!$(this).hasClass('A_N_P_Sli')){
+            $(this).siblings().removeClass('A_N_P_Sli');
+            $(this).addClass('A_N_P_Sli');
+        }
+    });
+    var anp_t_a = $('.Add_New_Paper_Tone-a ul');
+    anp_t_a.on('click','li',function(){
+        if(!$(this).hasClass('A_N_P_Sli')){
+            $(this).siblings().removeClass('A_N_P_Sli');
+            $(this).addClass('A_N_P_Sli');
+        }
+    });
+
+	$("#sign").click(function(){
+		$.cxDialog({ 
+		  title: '添加职位', 
+		  info: $("#signResume").html(), 
+		  lockScroll: true, 
+		  background: '#000',
+		  width:600,
+		  height:360,
+		  okText:"确认",
+		  ok:function(){
+		      $(".A_N_P_li").show();
+		  }
+		});
+	});
+	$("body").on("click",".signResume-btn",function(){
+		var txt = $(this).siblings(".signResume-text").val();
+		if(txt!=""){
+		    TagULAdd(txt);
+			$(this).siblings(".signResume-text").val("");
+		}
+	});
+	$("body").on("click",".signResume-ul li",function(){
+		var txt = $(this).text();
+		if(txt!=""){
+			TagAdd(txt);
+		}
+	});
+	$("body").on("click",".signResume-tag li a",function(){
+		$(this).parent().remove();
+	});
+	function TagAdd(txt){
+		var htm ='<li><a href="javascript:void(0)"><span>'+txt+'</span><i></i></a></li>';
+		$(".signResume-tag ul").append(htm);
+	}
+	function TagULAdd(txt) {
+	    var htm = '<li>' + txt + '</li>';
+	    $(".signResume-ul").append(htm);
+	}
+
+	
+
+	// var sp_tst2 = $('.apa_le-tj');
+	// sp_tst2.on('click', function () {
+	//     $('.set_pap_tjst').css('display', 'block');
+	// })
+
+	var Pinp = $('.apa_ri-qx input'),
+        Cinp = $('.apa_ri-cenbt input');
+	Pinp.on('click', function () {
+	    if ($(this).hasClass('Input_zbsk')) {
+	        Cinp.prop('checked', false);
+	        Cinp.removeClass('Input_zbsk');
+	        $(this).removeClass('Input_zbsk');
+	        Cinp.parents('.apa_ri-cen').removeClass('apa_ali');
+	    } else {
+	        Cinp.prop('checked', true);
+	        Cinp.addClass('Input_zbsk');
+	        $(this).addClass('Input_zbsk');
+	        Cinp.parents('.apa_ri-cen').addClass('apa_ali');
+	    }
+	});
+	Cinp.on('click', function () {
+	    if ($(this).hasClass('Input_zbsk')) {
+	        $(this).prop('checked', false);
+	        $(this).removeClass('Input_zbsk');
+	        $(this).parents('.apa_ri-cen').removeClass('apa_ali');
+	    } else {
+	        $(this).prop('checked', true);
+	        $(this).addClass('Input_zbsk');
+	        $(this).parents('.apa_ri-cen').addClass('apa_ali');
+	    }
+	});
+
+	
+	$(".delQues").click(function () {
+	    $.cxDialog({
+	        title: '删除试题',
+	        info: '<div class="cxDialogContent"><table><tr><td><i class="fa fa-exclamation-triangle"></i></td><td><span class="fbig fb">您确定要删除吗？</span><br> 删除后无法恢复！</td></tr></table> </div>',
+	        lockScroll: true,
+	        background: '#000',
+	        width: 400,
+	        ok: function () {
+
+	        },
+	        okText: '确 定',
+	        no: function () {
+
+	        },
+	        noText: '取 消'
+	    });
+	});
+
+	//添加试题弹窗
+    var aq_tst = $('.apa_le-tj');
+    var aq_tstL = $('.apa_le-tjW');
+    aq_tst.on('click', function () {
+        $('.aq_tjst').css('display', 'block');
+    });
+    aq_tstL.on('click', function () {
+        $('.aq_tjst').css('display', 'block');
+    });
+
+    //点击更换框 A_N_P_Sul 
+    var anp_ul_li = $('.apa_ri-t2 ul:not(:nth-of-type(2))');
+    anp_ul_li.on('click','li',function(){
+        if(!$(this).hasClass('A_N_P_Sli')){
+            $(this).siblings().removeClass('A_N_P_Sli');
+            $(this).addClass('A_N_P_Sli');
+        }
+    });
+});

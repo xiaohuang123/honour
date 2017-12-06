@@ -1,0 +1,97 @@
+﻿/// <reference path="jquery.min.js" />
+
+$(document).ready(function () {
+	 var path='';
+  if(location.href.indexOf("91saima")>-1){
+        path = "http://www.91saima.com"
+    }
+    else {
+         path = "http://www.acmcoder.com"
+    }
+    $("body").append('<div class="footer">'+
+			'<div class="public">'+
+				'<div class="footer-left">'+
+					'<div class="footer-logo">'+
+						'<img src="../images/blogo.png" style="position: relative;top: -3px;" />'+
+					'</div>'+
+					'<div class="footer-txt">'+
+						'<a target="_blank" href="'+path+'/aboutus/about.html">关于我们</a>' +
+						'　|　'+
+						'<a target="_blank" href="'+path+'/aboutus/contact.html">联系我们</a>' +
+						'　|　'+
+						/*'<a target="_blank" href="../job/comp_portal.html">加入我们</a>' +
+						'　|　'+
+						'<a target="_blank" href="../../aboutus/fankui.html">意见反馈</a>' +
+						'　|　'+*/
+						'<a target="_blank" href="'+path+'/aboutus/shengming.html">免责声明</a>' +
+						/*'　|　'+*/
+						/*'<a target="_blank" href="../comp/comp_enterprise.html">企业服务</a>' +*/
+						'<br>'+
+						'Copyright &copy; acmcoder.com'+
+						'<br>'+
+						'<span class="inputSpan">All Rights Reversed 京ICP备15012255-1</span>'+
+					'</div>'+
+				'</div>'+
+				'<div class="footer-right">'+
+					'<table>'+
+                      '<tbody>'+
+                      '<tr>'+
+                      '<td><img src="../images/f-phone.png"></td>'+
+                     '<td style="font-size: 14px;">客服热线：010-85359782<br>销售热线：010-85359766</td>'+
+                    '<td style="font-size: 14px;"><a class="weixinPng" href="javascript:void(0)" style="color:white;position: relative;"><img src="../../images/f-weixin.png"> &nbsp;&nbsp;iamacmcoder<img class="hide" style="width: 80px;position: absolute;left: 130px;top: -50px;" src="../../images/saimaweixin.jpg"></a><br>'+
+                     '<a href="javascript:void(0)" style="color:white"><img src="../images/f-qq.png"> &nbsp;&nbsp;2531743633</a><br></td>'+
+                       '</tr>'+
+                   '</tbody>'+
+                   '</table>'+
+					
+				'</div>'+
+			'</div>'+
+		'</div>');
+
+
+	if(location.host=="kao.acmcoder.com" || location.host=="localhost:9999"){
+		if(window.acm!=undefined){
+			$(".head-bar.public ul.nav").html('');
+			var i=0;
+			window.acm.hrHeader.forEach(function(item){
+				if(i==0){
+					$(".head-bar.public ul.nav").append('<li class="active"><a href="'+item.url+'">'+item.title+'</a></li>');
+				}else{
+					$(".head-bar.public ul.nav").append('<li><a href="'+ item.url+'">'+item.title+'</a></li>');
+				}
+				i++;
+			});
+		}
+	}
+
+/*top*/
+$(document).ready(function () {
+    $('body').append('<div class="topW" style="display: none"><span></span></div>');
+    $(".topW").click(function(){
+        $("body,html").animate({scrollTop:0});
+    });
+    $(document).scroll(function(){
+        if($(window).scrollTop()>400){
+            $(".topW").show();
+        }else{
+            $(".topW").hide();
+        }
+    });
+});
+   if(location.href.indexOf("91saima")>-1){
+        $('.inputSpan').html('All Rights Reversed 京ICP备15012255-4');
+        $('li.rencai').remove();
+    }
+    else {
+        $('.inputSpan').html('All Rights Reversed 京ICP备15012255-1')
+    }
+
+});
+
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9bd3f896a61958b41079f25da6185aa6";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();

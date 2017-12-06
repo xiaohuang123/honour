@@ -1,0 +1,182 @@
+$(function(){
+//弹窗关闭 prof_T
+    var prof_T_x = $('.profbt_T span'),
+        prof_T_xl = $('.closepro'),
+        prof_T_xl2 = $('.closepro2'),
+        prof_T = $('.prof_T');
+    prof_T_x.click(function(){
+        $(this).parents('.prof_T').css('display','none');
+    });
+    prof_T_xl.click(function(){
+        $(this).parents('.prof_T').css('display','none');
+    });
+//input全选
+    var Pinp = $('.addman input'),
+        Cinp = $('.procen input');
+    Pinp.on('click',function(){
+        if ($(this).hasClass('Input_zbsk')){
+            Cinp.prop("checked",false);
+            $(this).removeClass('Input_zbsk');
+        }else{
+            Cinp.prop("checked",true);
+            $(this).addClass('Input_zbsk');
+        }
+    });
+//下拉列表菜单
+    var 
+        ProMb1span = $('.profbj_M_b1 span'),
+        ProMtab = $('.profbj_M_b1 table'),
+        ProMbinput = $('.profbj_M_binput'),
+        ProMbinputz = $('.profbj_M_b1 input');
+    ProMb1span.on('click',function(){
+        if($(this).hasClass('profbj_M_span')){
+            $(this).nextAll('table').hide();
+            $(this).html('+');
+            $(this).removeClass('profbj_M_span');
+            $(this).nextAll('h5').removeClass('cenT29');
+        }else{
+            $(this).nextAll('table').show();
+            $(this).html('-');
+            $(this).addClass('profbj_M_span');
+            $(this).nextAll('h5').addClass('cenT29');
+        }
+
+    });
+    ProMtabHide()
+    function ProMtabHide(){
+        ProMtab.hide();
+    }
+//下拉列表全选 
+    ProMbinput.on('click',function(){
+        if($(this).hasClass('Input_zbsk')){
+            $(this).parent().find('input').prop("checked",false);
+            $(this).removeClass('Input_zbsk');
+        }else{
+            $(this).parent().find('input').prop("checked",true);
+            $(this).addClass('Input_zbsk');
+        }
+    });
+   //表格背景条变色
+    var TabBac = $('.table-background'),
+        TabInp = $('.table-background input');
+    TabBac.find('tr').each(function(i){
+        if(i%=2){
+            $(this).addClass('tbackground');
+        }
+    });
+    TabInp.on('click',function(a){
+        if ($(this).hasClass('Input_zbsk')){
+            $(this).prop('checked',false);
+            $(this).removeClass('Input_zbsk');
+            $(this).parents('tr').removeClass('table-back');
+        }else{
+            $(this).prop('checked',true);
+            $(this).addClass('Input_zbsk');
+            $(this).parents('tr').addClass('table-back');
+        }
+    });
+    var proSelect = $('select');
+    proSelect.on('click',function(){
+        $(this).css('color','#333');
+    });
+    var proInput = $('input');
+    proInput.on('click',function(){
+        $(this).css('color','#333');
+    });
+
+    var Tone = $('#t-one'),
+        Ttwo = $('#t-two,#t-two2'),
+        Tthree = $('#t-three'),
+        Tfour = $('#t-four'),
+        Tfive = $('#t-five'),
+        Tmove = $('.t-move');
+    Tone.click(function(){
+        $('.t-one').css('display','block');
+    });
+    Ttwo.click(function(){
+        $('.t-two').css('display','block');
+    });
+    Tthree.click(function(){
+        $('.t-three').css('display','block');
+    });
+    Tfour.click(function(){
+        $('.t-four').css('display','block');
+    });
+    Tfive.click(function(){
+        $('.t-five').css('display','block');
+    });
+    Tmove.click(function(){
+        $('#t-move').css('display','block');
+    });
+
+
+    $(".set_p_r-5cen .delp").click(function () {
+        var thisP = $(this).parents(".set_p_r-3");
+        $.cxDialog({
+            title: '删除试题',
+            info: '<div class="cxDialogContent"><table><tr><td><i class="fa fa-exclamation-triangle"></i></td><td><span class="fbig fb">您确定要删除吗？</span><br> 删除后无法恢复！</td></tr></table> </div>',
+            lockScroll: true,
+            background: '#000',
+            okText: "确定删除",
+            ok: function () {
+                thisP.remove();
+            },
+            noText: "取消",
+            no: function () {
+            }
+        });
+    });
+
+    //新建试卷弹窗
+    $(".Test_Paper_xNew_Ttwo1").click(function(){
+        $.cxDialog({
+            title: '新建试卷 (试卷)',
+            info: $('.ownPaper'),
+            lockScroll: true,
+            background: '#000',
+            width:800,
+            height:500
+        });
+    });
+
+
+    //点击更换框 A_N_P_select
+    var anp_sel_ul = $('.A_N_P_select ul');
+    anp_sel_ul.on('click','li',function(){
+        if(!$(this).hasClass('A_N_P_S_li')){
+            $(this).siblings().removeClass('A_N_P_S_li');
+            $(this).addClass('A_N_P_S_li');
+        }
+    });
+
+    //内容切换 A_N_P_Tk
+    var anp_tk_input1 = $('.A_N_P_Tkone'),
+        anp_tk_input2 = $('.A_N_P_Tktwo'),
+
+        anp_tk_sibi1 = $('.sibe_A'),
+        anp_tk_sibi2 = $('.sibe_B');
+    anp_tk_input1.on('click',function(){
+        anp_tk_sibi1.css('display','block');
+        anp_tk_sibi2.css('display','none');
+    });
+    anp_tk_input2.on('click',function(){
+        anp_tk_sibi2.css('display','block');
+        anp_tk_sibi1.css('display','none');
+    });
+    //点击更换框 A_N_P_Sul 
+    var anp_ul_li = $('.A_N_P_Sul ul');
+    anp_ul_li.on('click','li',function(){
+        if(!$(this).hasClass('A_N_P_Sli')){
+            $(this).siblings().removeClass('A_N_P_Sli');
+            $(this).addClass('A_N_P_Sli');
+        }
+    });
+    var anp_t_a = $('.Add_New_Paper_Tone-a ul');
+    anp_t_a.on('click','li',function(){
+        if(!$(this).hasClass('A_N_P_Sli')){
+            $(this).siblings().removeClass('A_N_P_Sli');
+            $(this).addClass('A_N_P_Sli');
+        }
+    });
+    
+});

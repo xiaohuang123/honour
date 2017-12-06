@@ -1,0 +1,120 @@
+ *{
+	padding: 0px;
+	margin:0px;
+	color:white;
+	font-family:����;
+}
+body{background:url(../image/body.png);
+}
+.body{
+	width:1200px;
+	height:500px;
+	margin: 0 auto;
+}
+.act{
+	width:509px;
+	height:100%;
+}
+.text{
+	width:509px;
+	height:80px;
+	margin-left:10px;
+}
+.top{
+	width:100%;
+	height:60px;
+	background:url(../image/top.png);
+}
+.border{
+	width:509px;
+	height:509px;
+	border-radius:50%;
+	margin:0 auto;
+}
+.radius{
+	width:470px;
+	height:470px;
+	border-radius:50%;
+	margin:0 auto;
+	background:url(../image/border.png);
+	-webkit-animation:circle 10s infinite linear;/*���� ѭ��*/
+	position: absolute;
+	z-index:-1;
+	left:447px;
+	top:60px;
+}
+@-webkit-keyframes circle{
+0%{ transform:rotate(0deg); }
+100%{ transform:rotate(360deg); }
+}
+.one{
+	width: 450px;
+	height: 230px;
+	margin:0 auto;
+	background:url(../image/one.png);
+	padding-top:20px;
+	margin-top:40px;
+
+}
+.two{
+	width: 300px;
+	height: 40px;
+	margin:0 auto;
+	margin-top:15px;
+	line-height: 40px;
+	font-size: 20px;
+}
+.input-1{
+	height: 25px;
+	width: 200px;
+	background:#383a41;
+}
+.space{
+	height: 40px;
+	width: 10px;
+	float: left;
+}
+.space-1{
+	float: left;
+	width: 310px;
+	height: 40px;
+}
+.three{
+	width: 300px;
+	height: 40px;
+	margin:0 auto;
+	margin-left:94px;
+	margin-top:20px;
+	line-height: 40px;
+	font-size: 20px;
+}
+.four{
+	width: 350px;
+	height: 35px;
+	margin-left:50px;
+}
+.four-left{
+	width: 175px;
+	height: 35px;
+	float: left;
+}
+.input-2{
+	text-align: center;
+	width: 83px;
+	height: 33px;
+	border:0px;
+	margin-left: 50px;background:url(../image/3.png);
+
+}
+.input-2:hover{
+	background:url(../image/4.png);
+}
+.error{
+	margin-top:5px;
+	text-align:center;
+	line-height:35px;
+	margin-bottom:10px;
+	margin:0 auto;
+	height:35px;
+	weigh:350px;
+}

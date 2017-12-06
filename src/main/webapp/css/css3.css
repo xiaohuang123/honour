@@ -1,0 +1,16 @@
+*{
+	padding:0;
+	margin: 0px;
+}
+.left{
+	width: 230px;
+	height: 650px;
+	background: #dddddd;
+	float: left;
+}
+.right{
+	width: 800px;
+	height: 650px;
+	background: red;
+	float: left;
+}

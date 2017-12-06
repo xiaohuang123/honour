@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.test.email.mapping.TExamQuestionMapper" >
+  <insert id="insert" parameterType="cn.test.email.model.TExamQuestion">
+  	insert into t_exam_question values(null,#{title},#{_option},#{answer},#{type},#{label},#{rank},#{created})
+  </insert>
+  
+  <select id="selectAll" parameterType="cn.test.email.model.TExamQuestionVo" resultType="cn.test.email.model.TExamQuestion">
+  		select * from t_exam_question 
+  		<where>
+  			<if test="title!=null and title!=''">
+  				and title like '%${title}%'
+  			</if>
+  			<if test="type!=null and type!=''">
+  				and type=#{type}
+  			</if>
+  		</where>
+  		limit #{dbBegin},#{pageCount} 
+  </select>
+  
+  <select id="selectCount" parameterType="cn.test.email.model.TExamQuestionVo"  resultType="int">
+  	select count(*) from t_exam_question
+  	<where>
+  		<if test="title!=null and title!=''">
+  				and title like '%${title}%'
+  		</if>
+  		<if test="type!=null and type!=''">
+  				and type=#{type}
+  		</if>
+  	</where>
+  </select>
+  
+  <delete id="deleteById" parameterType="int">
+  	delete from t_exam_question where id=#{id}
+  </delete>
+  
+  
+  <select id="selectById" parameterType="int" resultType="cn.test.email.model.TExamQuestion">
+  	select * from t_exam_question where id=#{id}
+  </select>
+  
+  <update id="updateById" parameterType="cn.test.email.model.TExamQuestion">
+  		UPDATE t_exam_question 
+  		<set>
+  			<if test="title!=null">
+  				title=#{title},
+  			</if>
+  			<if test="answer!=null">
+  				answer=#{answer},
+  			</if>
+  			<if test="_option!=null">
+  				_option=#{_option},
+  			</if>
+  			<if test="rank!=null">
+  				rank=#{rank},
+  			</if>
+  		</set>
+  		  WHERE id=#{id}
+  </update>
+  
+  <delete id="selectDeleteById" parameterType="cn.test.email.model.TExamQuestionVo">
+  		delete from t_exam_question where
+  		<foreach collection="ids" item="id" open="id in(" close=")" separator=",">
+  			#{id}
+  		</foreach>
+  </delete>
+  
+  
+  <!-- <select id="selectBySid" parameterType="int" resultType="cn.test.email.model.TExamQuestion">
+  	select * from t_exam_question where sid=#{sid}
+  </select> -->
+  
+  
+  <select id="findAll" resultType="cn.test.email.model.TExamQuestion">
+  		select id,title,_option,answer,type,rank
+  		from t_exam_question
+  </select>
+  
+  <select id="selectByRank" resultType="cn.test.email.model.TExamQuestion" parameterType="int">
+  	select * from t_exam_question where rank=#{rank}
+  </select>
+  
+  <!-- 保存修改错误试题 -->
+  <select id="selectErrorQuestionById" parameterType="cn.test.email.model.ErrorQuestion"  resultType="cn.test.email.model.ErrorQuestion">
+  	select * from  t_error_question 
+  	where qid=#{qid} and  uid=#{uid}
+  </select>
+  
+  <insert id="insertErrorQuestion" parameterType="cn.test.email.model.ErrorQuestion">
+  	insert into t_error_question 
+  	values(null,#{qid},#{uid},#{state},#{num},#{time},#{erroranswer})
+  </insert>
+  
+  <update id="updateErrorQuestion" parameterType="cn.test.email.model.ErrorQuestion">
+  	update t_error_question
+  	<set>
+  		<if test="state!=null">
+  			state=#{state},
+  		</if>
+  		<if test="num!=null">
+  			num=#{num},
+  		</if>
+  		<if test="time!=null">
+  			time=#{time},
+  		</if>
+  		<if test="erroranswer!=null">
+  			erroranswer=#{erroranswer},
+  		</if>
+  	</set>
+  	where qid=#{qid} and  uid=#{uid}
+  </update>
+  
+  <resultMap type="cn.test.email.model.ErrorQuestion" id="errorQuestion">
+  		<id column="id" property="id"/>
+  		<result column="qid" property="qid"/>
+  		<result column="uid" property="uid"/>
+  		<result column="state" property="state"/>
+  		<result column="num" property="num"/>
+  		<result column="time" property="time"/>
+  		<result column="erroranswer" property="erroranswer"/>
+  		
+  		<association property="teExamQuestion" javaType="cn.test.email.model.TExamQuestion">
+  				<id column="id" property="id"/>
+		  		<result column="title" property="title"/>
+		  		<result column="_option" property="_option"/>
+		  		<result column="type" property="type"/>
+  		</association>
+  </resultMap>
+  
+  <!-- 展示错误试题 -->
+  <select id="selectErrorQuestionByUid" parameterType="cn.test.email.model.ErrorQuestionVo" resultMap="errorQuestion">
+  		select a.*,b.* from t_error_question a,t_exam_question b
+  		<where>
+  			and a.uid=#{uid}
+  			and a.qid=b.id
+  		</where>
+  		limit #{dbBegin},#{pageCount}
+  </select>
+  
+  <select id="errorQuestionCount" resultType="int" parameterType="cn.test.email.model.ErrorQuestionVo">
+  		select count(*) from t_error_question
+  		<where>
+  			and uid=#{uid}
+  		</where>
+  </select>
+</mapper>

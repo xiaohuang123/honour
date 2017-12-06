@@ -1,0 +1,215 @@
+@CHARSET "UTF-8";
+
+
+/*字体风格*/
+body { font-family: '微软雅黑', 'Helvetica Neue', Helvetica, 'Microsoft Yahei', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', sans-serif;} 
+body {
+	min-width: 320px; /*设置页面最小宽度为320像素*/
+	margin: 0 auto;
+}
+
+
+/*背景颜色*/
+@media (min-width: 780px) {
+	/*html { background-color: #B1B1B1;}*/
+}
+body { 
+	background-color: #FFF; 
+	font-size: 16px;
+}
+
+
+/*背景颜色*/
+.background-color1 { background-color: #1D2C36;} 
+.background-color2 { background-color: #FFF;} 
+
+/*字体颜色*/
+html .color1{ color: #29BDB9 !important;}
+html .color2{ color: #64FFFB;}
+html .color3{ color: #AEFFC0;}
+html .color4{ color: #39C1BD;}
+html .color5{ color: #FFF !important;}
+
+/*宽度*/
+.width-x{ width: 100%;}
+.width-1096{ width: 1096px; margin-left: auto; margin-right: auto;}
+.min-width-1096{min-width: 1096px;}
+/*.max-width-1096{max-width: 1096px; margin-left: auto; margin-right: auto;}*/
+
+
+
+/*盒布局*/
+.display-box{
+	display: -webkit-box;
+	display: -moz-box;
+	display: -o-box;
+	display: -ms-flexbox;
+	display: box;
+}
+
+/*垂直方向-居中对其*/
+.box-align-center{
+	-webkit-box-align:center;
+	-moz-box-align:center;
+	-o-box-align:center;
+	-ms-flex-align:center;
+	box-align:center;
+}
+
+/*垂直方向-顶部对齐*/
+.box-align-start{
+	-moz-box-align:start;
+	-webkit-box-align:start;
+	-ms-flex-align:start;
+	-o-box-align:start;
+	box-align:start;		
+}
+
+/*垂直方向-底部对齐*/
+.box-align-end{
+	-moz-box-align:end;
+	-webkit-box-align:end;
+	-o-box-align:end;
+	-ms-flex-align:end;
+	box-align:end;		
+}
+
+/*水平方向-居中对齐*/
+.box-pack-center{
+	-moz-box-pack:center;
+	-webkit-box-pack:center;
+	-o-box-pack:center;
+	-ms-flex-pack:center;
+	box-pack:center;	
+}
+
+/*水平方向-左则对齐*/
+.box-pack-start{
+	-moz-box-pack:start;
+	-webkit-box-pack:start;
+	-o-box-pack:start;
+	-ms-flex-pack:start;
+	box-pack:start;	
+}
+
+/*水平方向-右则对齐*/
+.box-pack-end{
+	-moz-box-pack:end;
+	-webkit-box-pack:end;
+	-o-box-pack:end;
+	-ms-flex-pack:end;
+	box-pack:end;	
+}
+
+/*设置元素为可伸缩*/
+.box-flex{
+	-moz-box-flex: 1;
+	-webkit-box-flex: 1;
+	-o-box-flex: 1;
+	-ms-flex: 1;
+	box-flex: 1;	
+}
+/*/盒布局*/
+
+/*动画、过渡*/
+.transition1{ 
+	-moz-transition: all 0.15s linear;
+	-webkit-transition: all 0.15s linear;
+	-o-transition: all 0.15s linear;
+	-ms-transition: all 0.15s linear;
+	transition: all 0.15s linear;
+}
+
+/*定位*/
+.position-fixed{ 
+	position: fixed;
+	left: 0;
+	right: 0;
+	width: 100%;
+	z-index: 999;
+}
+/*/定位*/
+
+/*占位*/
+.height-242 { height: 242px;}
+
+/*边框、边线*/
+.height1 { 
+	overflow:hidden; 
+	width: 100%;
+	height: 1px; 
+	background: #E0E0E0;
+}
+.border-tblr{ border: 1px solid #ddd;}
+.border-top1 { border-top: 1px solid #D5D5D5;}
+.border-bottom1 { border-bottom: 1px solid #D5D5D5;}
+.border-none{ border: none;}
+
+/*圆角*/
+.border-radius-6{ border-radius: 6px;}
+
+/*内边距*/
+.padding-top-15 { padding-top: 15px; }
+.padding-top-44 { padding-top: 44px; }
+.padding-left-12 { padding-left: 12px; }
+.padding-right-3 { padding-top: 3px; }
+.padding-tb-15 { 
+	padding-top: 15px; 
+	padding-bottom: 15px;
+}
+.padding-lr-10 { 
+	padding-left: 10px; 
+	padding-right: 10px;
+}
+.padding-lr-15 { 
+	padding-left: 15px; 
+	padding-right: 15px;
+}
+.padding-lr-20 { 
+	padding-left: 20px; 
+	padding-right: 20px;
+}
+.padding-lr-40 { 
+	padding-left: 40px; 
+	padding-right: 40px;
+}
+
+/*外边距*/
+.margin-top-7 { margin-top: 7px;}
+.margin-top-10 { margin-top: 10px;}
+.margin-top-15 { margin-top: 15px;}
+.margin-top-17 { margin-top: 17px;}
+.margin-top-25 { margin-top: 25px;}
+.margin-top-27 { margin-top: 27px;}
+.margin-top-45 { margin-top: 45px;}
+.margin-top-50 { margin-top: 50px;}
+.margin-top-76 { margin-top: 76px;}
+.margin-right-12 { margin-right: 12px;}
+.margin-lr-15 { 
+	margin-left: 15px; 
+	margin-right: 15px;
+}
+
+/*设置元素为内联快级并垂直居中对齐*/
+.vertical-align-middle{
+	vertical-align: middle;
+}
+.display-inline-block-align{ 
+	display-inline-block;
+	vertical-align: middle;
+}
+.display-inline-block-align-q *{ 
+	display-inline-block;
+	vertical-align: middle;
+}
+
+/*改变placeholder输入框提示颜色*/
+.placeholder-color1:-moz-placeholder {color: #ccc;}
+.placeholder-color1::-moz-placeholder {color: #ccc;}
+.placeholder-color1:-ms-input-placeholder{color: #ccc;}
+.placeholder-color1::-webkit-input-placeholder{color: #ccc;}
+
+.placeholder-color2:-moz-placeholder { color: #D0D0D0;}
+.placeholder-color2::-moz-placeholder { color: #D0D0D0;}
+.placeholder-color2:-ms-input-placeholder{ color: #D0D0D0;}
+.placeholder-color2::-webkit-input-placeholder{ color: #D0D0D0;}

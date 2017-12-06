@@ -1,0 +1,18 @@
+/*
+SQLyog v10.2 
+MySQL - 5.5.25 
+*********************************************************************
+*/
+/*!40101 SET NAMES utf8 */;
+
+create table `t_test_paper` (
+	`id` int (11),
+	`pname` varchar (765),
+	`seednum` int (11),
+	`qnum` int (11),
+	`minute` int (11),
+	`time` varchar (150),
+	`rank` int (11)
+); 
+insert into `t_test_paper` (`id`, `pname`, `seednum`, `qnum`, `minute`, `time`, `rank`) values('2','JavaSE基础卷','3','20','100','90分钟','1');
+insert into `t_test_paper` (`id`, `pname`, `seednum`, `qnum`, `minute`, `time`, `rank`) values('5','web考卷','3','25','100','100分钟','2');

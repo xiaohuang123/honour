@@ -1,0 +1,85 @@
+
+/**
+ * Created by xunuo on 2016/11/12 0012.
+ */
+
+
+//var httpUrl = "http://www.acmcoder.com/sessionKey";
+var app_key = "1e304d4e8df1b74cfa009913198428ab";
+var v = "v1.0";
+var sign_method = "md5";
+var signConstant = "!@#*(@#$(*Y_sdfiD";//与后台一致
+session_key = "stringify076786";  //这个sessionKey从服务器上获取
+var timestamp =null ;
+//获取当前时间戳
+function getTimestamp(domain){
+    $.ajax({
+        type: "get",
+        url: "https://"+domain+"/enterprise/sessionKey",
+        cache: false,
+        async: false,  //设置同步了~~~~~~~~~
+        dataType: "json",
+        data: {},
+        success: function (data) {
+            if (data.success) {
+                timestamp=data.msg.timestamp;
+                session_key = data.msg.sessionId;
+            }else{
+                timestamp = (Date.parse(new Date())/1000).toString();
+            }
+        }
+    });
+}
+
+//获取sign签名
+function getSign(keyOptions){
+    var sign = signConstant;
+    var isFirst = false;
+	//keyOptions.sort();
+    var ary = [] ;
+    for (var  key in keyOptions) {
+        ary.push(key);
+    }
+    ary.sort();
+    for (var  key in ary) {
+        if (!isFirst) {
+            sign = sign +ary[key]+'='+keyOptions[ary[key]];
+            isFirst = true;
+        }else {
+            sign = sign + '&';
+            sign = sign +ary[key]+'='+ keyOptions[ary[key]];
+        }
+    }
+    sign = sign + signConstant;
+    return sign;
+}
+//获取发送数据的
+function getData(options,apiName,domain){
+    getTimestamp(domain);
+    options['app_key']=app_key;
+    options['api']=apiName;
+    options['timestamp']=timestamp;
+    options['v']='v1.0';
+    options['sign_method']='md5';
+    options['session_key']='session_key';
+
+    var sign = hex_md5(getSign(options));
+    var data = {
+        app_key:app_key,
+        api:apiName,
+        timestamp:timestamp,
+        v:'v1.0',
+        sign_method:'md5',
+        session_key:session_key,
+        sign:sign
+    };
+
+    for (var key in options) {
+        data[key] = options[key];
+    }
+    return data;
+}
+
+function logData(data){
+    console.log(JSON.stringify(data));
+}

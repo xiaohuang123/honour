@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.test.email.mapping.UsersMapper" >
+  <resultMap id="BaseResultMap" type="cn.test.email.model.Users" >
+  	<id column="uid" property="uid" jdbcType="INTEGER"/>
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="pass" property="pass" jdbcType="VARCHAR" />
+    <result column="rank" property="rank" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    uid,name, pass,rank
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_user
+    where name = #{name,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from users
+    where name = #{name,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.test.email.model.Users" >
+    insert into users (name, pass,rank)
+    values (#{name,jdbcType=VARCHAR}, #{pass,jdbcType=VARCHAR},#{rank,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.test.email.model.Users" >
+    insert into t_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="uid != null">
+      	uid,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="pass != null" >
+        pass,
+      </if>
+      <if test="rank != null" >
+        rank,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="uid != null">
+      	#{uid,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="pass != null" >
+        #{pass,jdbcType=VARCHAR},
+      </if> 
+      <if test="rank != null" >
+        #{rank,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.test.email.model.Users" >
+    update users
+    <set >
+      <if test="pass != null" >
+        pass = #{pass,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where name = #{name,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.test.email.model.Users" >
+    update users
+    set pass = #{pass,jdbcType=VARCHAR}
+    where name = #{name,jdbcType=VARCHAR}
+  </update>
+  
+ <!--  验证用户的用户名和密码是否正确 -->
+  <select id="selectByUsers" parameterType="cn.test.email.model.Users" resultType="cn.test.email.model.Users">
+  	select 
+    <include refid="Base_Column_List" />
+    from t_user
+    <where>
+    		and  name = #{name,jdbcType=VARCHAR}
+    		and pass=#{pass,jdbcType=VARCHAR}
+    </where>
+   
+    
+  </select>
+  
+  
+  <!-- 修改用户级别 -->
+  <update id="updateRank" parameterType="cn.test.email.model.Users">
+  	update t_user
+  	<set>
+  		<if test="rank != null">
+  			rank=#{rank},
+  		</if>
+  	</set>
+  	where uid=#{uid}
+  </update>
+  
+</mapper>

@@ -1,0 +1,86 @@
+/**
+ * cxDialog
+ * ------------------------------ */
+.cxdialog{position:fixed;top:50%;left:50%;overflow:hidden;min-width:240px;max-width:90%;margin:0;padding:0;border:none;border-radius:0px;background:#fff;color:#333;font-family:Arial,'\5fae\8f6f\96c5\9ed1';z-index:10002;
+_position:absolute;
+_width:360px;
+_height:140px;
+border: 5px solid rgba(0,0,0,0.3);
+}
+.cxdialog > a[rev="close"]{position:absolute;top:0;right:0;width:30px;height:30px;color:rgba(150,150,150,1);font:18px/30px Tahoma;text-align:center;text-decoration:none;cursor:pointer;
+*font-size:12px;
+}
+/*.cxdialog > a[rev="close"]:before{content:"×";}*/
+.cxdialog > a[rev="close"]:hover{color:rgba(150,150,150,1);}
+
+.cxdialog_title{background: #fbfbfd;color:#333;font-weight:bold;font-size:14px;height: 42px;line-height: 41px;text-indent:10px;border-bottom: 1px solid #e8e8e8;font-weight: normal;}
+.cxdialog_info{overflow:auto;min-height:40px;padding:10px;font-size:14px;line-height:1.6; min-width:300px;}
+.cxdialog_btns{overflow:hidden;padding:10px;border-top:1px solid #ddd;text-align:right;}
+.cxdialog_btns a{display:inline-block;position:relative;padding:0 2em;border:none;border-radius:0px;background:#29bdb9;color:#fff;font-size:14px;line-height:28px;text-decoration:none;cursor:pointer;}
+.cxdialog_btns a:hover{opacity: 0.8;}
+.cxdialog_btns a + a{margin-left:10px;}
+
+.cxdialog_overlay{display:none;overflow:hidden;position:fixed;top:0;left:0;width:100%;height:100%;z-index:10001;
+filter:alpha(opacity=50);
+opacity:0.5;
+_position:absolute;
+}
+.cxdialog_lock{overflow:hidden !important;width:auto;}
+
+/* iOS Theme */
+.cxdialog.ios{min-width:270px;min-height:inherit;border-radius:6px;background:#e9e9e9;box-shadow:none;}
+.cxdialog.ios > a[rev="close"]{display:none;}
+.cxdialog.ios .cxdialog_title{padding:16px 10px 0 10px;border:none;background:none;font-size:18px;line-height:1.5;text-align:center;text-indent:0;}
+.cxdialog.ios .cxdialog_info{min-height:inherit;padding:4px 10px 14px 10px;border:none;background:none;font-size:14px;text-align:center;}
+.cxdialog.ios .cxdialog_title + .cxdialog_info{margin-top:2px;padding-top:0;}
+.cxdialog.ios .cxdialog_btns{overflow:hidden;padding:0;border-top:1px solid #d4d4d4;text-align:center;}
+.cxdialog.ios .cxdialog_btns a{clear:both;display:block;margin:0;padding:0;border:none;border-radius:0;background:none;color:#007aff;font-weight:bold;font-size:17px;line-height:44px;text-decoration:none;cursor:pointer;}
+.cxdialog.ios .cxdialog_btns a:hover{background:#d9d9d9;}
+.cxdialog.ios .cxdialog_btns a.btn_ok,
+.cxdialog.ios .cxdialog_btns a.btn_no{clear:none;float:left;width:50%;border:none;}
+.cxdialog.ios .cxdialog_btns a.btn_ok{float:right;}
+.cxdialog.ios .cxdialog_btns a.btn_ok:before{content:'';position:absolute;top:0;left:0;width:1px;height:100%;background:#d4d4d4;}
+.cxdialog.ios .cxdialog_btns a.btn_ok:only-child,
+.cxdialog.ios .cxdialog_btns a.btn_no:only-child{float:none;width:100%;}
+.cxdialog.ios .cxdialog_btns a + a{border-top:1px solid #d4d4d4;}
+
+/* Black Theme */
+.cxdialog.black{padding:0;border:none;background:#333;color:#fff;}
+.cxdialog.black > a[rev="close"]{color:#666;}
+.cxdialog.black > a[rev="close"]:hover{color:#333;}
+.cxdialog.black .cxdialog_title{position:relative;border-bottom:1px solid #000;color:#333;
+background:rgba(194,194,194,1);
+background:-moz-linear-gradient(top, rgba(194,194,194,1) 0%, rgba(150,150,150,1) 100%);
+background:-webkit-linear-gradient(top, rgba(194,194,194,1) 0%, rgba(150,150,150,1) 100%);
+background:-o-linear-gradient(top, rgba(194,194,194,1) 0%, rgba(150,150,150,1) 100%);
+background:-ms-linear-gradient(top, rgba(194,194,194,1) 0%, rgba(150,150,150,1) 100%);
+background:linear-gradient(to bottom, rgba(194,194,194,1) 0%, rgba(150,150,150,1) 100%);
+}
+.cxdialog.black .cxdialog_title:before{content:'';position:absolute;top:0;left:0;width:100%;height:1px;background:#fff;}
+.cxdialog.black .cxdialog_title:after{content:'';position:absolute;bottom:-2px;left:0;width:100%;height:1px;background:#555;}
+.cxdialog.black .cxdialog_info{border:none;background:none;font-size:12px;text-align:left;}
+.cxdialog.black .cxdialog_btns{position:relative;border-top:1px solid #000;text-align:left;}
+.cxdialog.black .cxdialog_btns:before{content:'';position:absolute;top:0;left:0;width:100%;height:1px;background:#555;}
+.cxdialog.black .cxdialog_btns a{border:1px solid #000;box-shadow:0 1px 0 #888;color:#333;line-height:28px;
+background:rgba(194,194,194,1);
+background:-moz-linear-gradient(top, rgba(194,194,194,1) 0%, rgba(150,150,150,1) 100%);
+background:-webkit-linear-gradient(top, rgba(194,194,194,1) 0%, rgba(150,150,150,1) 100%);
+background:-o-linear-gradient(top, rgba(194,194,194,1) 0%, rgba(150,150,150,1) 100%);
+background:-ms-linear-gradient(top, rgba(194,194,194,1) 0%, rgba(150,150,150,1) 100%);
+background:linear-gradient(to bottom, rgba(194,194,194,1) 0%, rgba(150,150,150,1) 100%);
+}
+.cxdialog.black .cxdialog_btns a:hover{background:#c2c2c2;}
+
+
+
+/**** my style ****/
+.cxdialog_info{ padding:0px 10px 10px;}
+.cxdialog_info .head{ line-height:20px; font-size:20px; border-bottom:1px solid #dedede; padding:10px 50px 10px 0px; line-height:30px;}
+.cxdialog_info .body{ padding:10px 0px;}
+.cxdialog > a[rev="close"]{ font-size:30px; right:5px; top:4px; font-weight:lighter;background: url(../images/close.png) no-repeat center center;}
+.cxdialog > a[rev="close"]:hover{
+	background:#29bdb9 url(../images/close-hover.png) no-repeat center center;
+
+}
+.cxdialog_info .body .time{ padding:5px 0px; color:#999;}
+.cxdialog_info .alertbody{padding: 30px 50px 20px 10px; text-align:center;}

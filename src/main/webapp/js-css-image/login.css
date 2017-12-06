@@ -1,0 +1,161 @@
+.userCnt{
+	background: url(../../images/report-bg.jpg) repeat-x;
+	padding-top:40px;
+	padding-left: 16px;
+	padding-right: 16px;
+}
+.loginCnt{
+	width: 520px;
+	background: #FFFFFF;
+	margin: 0px auto 10px;
+	box-shadow: 0 0 5px rgba(0,0,0,0.1);
+	padding: 1px;
+}
+.loginCnt h1{
+	font-size: 18px;
+	font-weight: normal;
+	height: 60px;
+	line-height: 60px;
+	border-bottom: 1px solid #e8e8e8;
+	text-align: center;
+	font-family: "microsoft yahei";
+}
+.login-box{
+	padding: 25px 100px 0px;
+}
+.login-box ul li{
+	margin-bottom: 15px;
+	position: relative;
+}
+.login-text{
+	width: 100%;
+	height: 40px;
+	border: 1px solid #bfc3ca;
+	padding: 0px 17px;
+	font-size: 14px;
+}
+.login-error{
+	padding-left: 6px;
+	color: #ff0000;
+}
+
+.login-error i{
+	width: 13px;
+	height: 13px;
+	display: inline-block;
+	background: url(../../images/icon.png) no-repeat 0px -85px;
+	margin-right: 5px;
+	float: left;
+	margin-top: 2px;
+}
+#sbtn{
+    display: inline-block;
+	line-height: 37px;
+}
+#reset_pwd{
+    display: inline-block;
+	line-height: 37px;}
+	#examregist{
+		 display: inline-block;
+	line-height: 37px;
+	}
+.login-btn{
+	height: 37px;
+	width: 100%;
+	background: #29bdb9;
+	text-align: center;
+	cursor: pointer;
+	font-size: 16px;
+	color: #ffffff;
+}
+.login-t input{
+	position: relative;
+	top: -1px;
+	margin-right: 5px;
+}
+.login-t span{
+	float: left;
+	font-size: 14px;
+}
+.login-t a{
+	float: right;
+	font-size: 14px;
+	color: #29bdb9;
+}
+.login-f{
+	height: 57px;
+	line-height: 57px;
+	font-size: 14px;
+	color: #666666;
+	text-align: center;
+	border-top: 1px dashed #dbdbdb;
+	margin: 10px 24px 0px;
+}
+.login-f a{
+	color: #29bdb9;
+}
+.regisit-span{
+	position: absolute;
+	top: 10px;
+	left: 12px;
+	font-size: 14px;
+	color: #000000;
+	font-weight: bold;
+	
+}
+.regisit-phone{
+	padding-left: 52px;
+}
+.regisit-send{
+	display: inline-block;
+	height: 40px;
+	background: #29bdb9;
+	font-size: 14px;
+	color: #FFFFFF;
+	text-align: center;
+	line-height: 40px;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	padding: 0px 10px;
+}
+.disclick {
+    background: #ccc;
+}
+.regisit-send-input{
+	padding-right: 130px;
+}
+.regisit-error .login-error{
+	padding-top: 10px;
+}
+.regisit-error .login-text{
+	border: 1px solid #ff3000;
+}
+.verificationCode{
+	padding: 40px 20px 25px;
+}
+.verificationCode-img{
+	float: left;
+	margin-top: 3px;
+	margin-right: 10px;
+}
+.verificationCode-text{
+	height: 40px;
+	width: 166px;
+	padding: 0px 10px;
+	border: 1px solid #bfc3ca;
+	background: #FFFFFF;
+	float: left;
+	font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    font-family: Verdana;
+}
+.saimaxieyi {
+    width: 600px;
+    height: 300px;
+    padding: 20px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.input#examregist:active,.input#examregist:vistted,.input#examregist:focus,.input#examregist:hover{color: white!important}
